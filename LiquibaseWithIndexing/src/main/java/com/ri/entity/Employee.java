@@ -1,7 +1,9 @@
 package com.ri.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,10 +17,11 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name="employee")
-public class Employee {
+public class Employee implements Serializable {
 	@Id
 	@GeneratedValue
 	private Integer id;
+	@Column
 	@GeneratedValue(generator="id_seq",strategy=GenerationType.SEQUENCE)
 	@GenericGenerator(
 			name="id_seq",
@@ -27,11 +30,16 @@ public class Employee {
 					 Parameter(name=,value="1")
 			}*/
 			)
-	private String empid;
+	private String employeeid;
+	@Column
 	private String firstname;
+	@Column
 	private String lastname;
+	@Column
 	private String gender;
+	@Column
 	private String email;
+	@Column
 	private long mobile;
 
 }
