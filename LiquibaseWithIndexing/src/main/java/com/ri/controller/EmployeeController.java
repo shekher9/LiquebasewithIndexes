@@ -1,5 +1,8 @@
 package com.ri.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -11,8 +14,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.ri.entity.Employee;
 import com.ri.model.EmployeeModel;
@@ -22,7 +27,7 @@ import com.ri.service.EmployeeService;
 
 
 @RestController
-@Consumes(value = {MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+@Consumes(value = {MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML,})
 @Produces(value = MediaType.APPLICATION_JSON)
 public class EmployeeController {
 	
@@ -30,7 +35,7 @@ public class EmployeeController {
 	private EmployeeService empservice;
 	
 	@PostMapping(value = "emp/save")
-	public @ResponseBody EmployeeResponse registerNewEmployee(@RequestBody EmployeeModel model) {
+	public EmployeeResponse registerNewEmployee(@RequestParam EmployeeModel model) {
 		Employee emp=new Employee();
 		EmployeeResponse responce=new EmployeeResponse();
 		boolean flag=false;
@@ -46,6 +51,14 @@ public class EmployeeController {
 		}
 		return responce;
 	}
+	
+	public List<EmployeeModel> fechAllEmployee(){
+		List<Employee>emplist=new ArrayList<Employee>();
+		emplist=empservice.getallEmployee();
+		emplist.forEach(emp->{
+			
+		});
+	} 
 	
 
 }
