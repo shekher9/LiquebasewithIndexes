@@ -16,7 +16,7 @@ import org.hibernate.annotations.Parameter;
 import lombok.Data;
 @Data
 @Entity
-@Table(name="employee")
+@Table(name="EMPLOYE")
 public class Employee implements Serializable {
 	@Id
 	@GeneratedValue
