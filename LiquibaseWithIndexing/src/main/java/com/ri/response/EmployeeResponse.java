@@ -1,9 +1,9 @@
-package com.ri.responce;
+package com.ri.response;
 
 import lombok.Data;
 
 @Data
-public class EmployeeResponce {
+public class EmployeeResponse {
 	private int status;
 	private String message;
 

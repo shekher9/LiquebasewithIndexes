@@ -2,6 +2,12 @@ server:
   port: 4444
 spring:
   datasource:
-    url: 
-    username: 
-    password: 
+    url: jdbc:postgresql://localhost:5432/ribd
+    username: postgres
+    password: root
+  liquibase:
+    change-log: classpath:classpath:/db/changelog/db.changelog-master.xml
+    enabled: true
+  jpa:
+    show-sql: true
+    
