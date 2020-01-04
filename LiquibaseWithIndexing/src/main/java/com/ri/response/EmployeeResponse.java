@@ -1,10 +1,16 @@
 package com.ri.response;
 
-import lombok.Data;
+import org.springframework.http.HttpStatus;
 
-@Data
+import lombok.Builder;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Builder
 public class EmployeeResponse {
-	private int status;
+	private HttpStatus status;
 	private String message;
 
 }
