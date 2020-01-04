@@ -6,6 +6,9 @@
         xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-  <includeAll path="src/main/resources/db/changelog/changes/"/>
+  <!-- <includeAll path="src/main/resources/db/changelog/changes/*.xml"/> -->
+  	<include file="/db/changelog/changes/create-employe-table-changelog.xml"/>
+  	<include file="/db/changelog/changes/create-index-changelog.xml"/>
+  	<include file="/db/changelog/changes/create-sequence-changelog.xml"/>
   
   </databaseChangeLog>

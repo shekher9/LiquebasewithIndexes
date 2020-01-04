@@ -45,7 +45,7 @@ public class Employee implements Serializable {
 	private String email;
 	@Column
 	private long mobile;
-	@Column
-	private Integer deptno;
-
+	/*
+	 * @Column private Integer deptno;
+	 */
 }

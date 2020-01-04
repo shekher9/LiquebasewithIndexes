@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,12 +38,26 @@ import ch.qos.logback.core.joran.util.beans.BeanUtil;
 @RestController
 @Consumes(value = {MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML,})
 @Produces(value = MediaType.APPLICATION_JSON)
+@RequestMapping("/emp")
 public class EmployeeController {
 	
 	@Autowired(required = true)
 	private EmployeeService empservice;
 	
-	@PostMapping(value = "emp/save")
+	@GetMapping("/demo")
+	public EmployeeModel getDemo() {
+		EmployeeModel model=new EmployeeModel();
+		model.setId(000);
+		model.setEmployeeid("RI_000");
+		model.setFirstname("raja");
+		model.setLastname("kumar");
+		model.setGender("Male");
+		model.setEmail("rajakumar@gmail.com");
+		model.setMobile(9087654321L);
+		return model;
+	}
+	
+	@PostMapping(value = "/save")
 	public ResponseEntity<Object>   registerNewEmployee(@RequestBody EmployeeModel model) {
 		Employee emp=new Employee();
 		EmployeeResponse response=null;
@@ -93,7 +108,7 @@ public class EmployeeController {
 			response=EmployeeResponse.builder().status(HttpStatus.NOT_FOUND).message("EMployee data not found").build();
 		return ResponseEntity.ok(response);
 	}
-	@DeleteMapping(value = "removeEmployee/{id}")
+	@DeleteMapping(value = "/removeEmployee/{id}")
 	public ResponseEntity<Object> removeEmployee(@PathParam(value = "id") int id){
 		boolean flag=empservice.removeEmployeeById(id);
 		EmployeeResponse response=null;
