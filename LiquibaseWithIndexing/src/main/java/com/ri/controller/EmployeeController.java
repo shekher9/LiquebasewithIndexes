@@ -36,7 +36,7 @@ import ch.qos.logback.core.joran.util.beans.BeanUtil;
 
 
 @RestController
-@Consumes(value = {MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML,})
+@Consumes(value = {MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 @Produces(value = MediaType.APPLICATION_JSON)
 @RequestMapping("/emp")
 public class EmployeeController {
